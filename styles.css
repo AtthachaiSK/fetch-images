@@ -1,0 +1,18 @@
+
+.div-photos {
+    display: flex;
+    flex-wrap: wrap;
+}
+.div-photos > img {
+    height: 150px;
+    margin: 2px;
+    flex-grow: 1;
+  }
+.img-photo {
+  background-color: #999;
+}
+
+img {
+    object-fit: cover;
+    vertical-align: bottom;
+}

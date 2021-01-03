@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Photo-gallery</title>
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="photos" class="div-photos"></div>
+    <script>
+        axios.get('https://picsum.photos/v2/list')
+            .then(function (response) {
+                console.log(response);
+                var data_photos = response.data;
+                for (var i = 0; i < data_photos.length; i++) {
+                    var elem = document.createElement("img");
+                    elem.setAttribute("src", data_photos[i].download_url);
+                    elem.setAttribute("alt", "photo");
+                    elem.setAttribute("class", "img-photo")
+                    document.getElementById("photos").appendChild(elem);
+                }
+
+            }).catch(function (error) {
+                console.log(error);
+            })
+    </script>
+</body>
+
+</html>
