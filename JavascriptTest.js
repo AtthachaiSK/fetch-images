@@ -1,14 +1,14 @@
 
+// 02 - Venue Booking System (Javascript Test)
 let demo = require('./demo-booking-data')
-
 function dateToTime(dateString) {
     return new Date(dateString).getTime();
 }
-
 function between2point(x, y, min, max) {
     return (x >= min && x <= max) || (y >= min && y <= max);
 }
 
+//#1
 const checkAvailability = (roomId, startTime, endTime) => {
     let available = true;
     for (var i = 0; i < demo.length; i++) {
@@ -27,7 +27,10 @@ const checkAvailability = (roomId, startTime, endTime) => {
     return available;
 }
 var available = checkAvailability('A101', '2019-09-28 07:00:00', '2019-09-28 10:20:00');
-console.log(" available: " + available)
+console.log(" available: " + available);
+
+
+
 function getWeekNumber(d) {
     d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
     d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
@@ -36,7 +39,7 @@ function getWeekNumber(d) {
     return [d.getUTCFullYear(), weekNo];
 }
 
-
+//#2
 const getBookingsForWeek = (roomId, weekNo) => {
     var bookingRoom = [];
     for (var i = 0; i < demo.length; i++) {
@@ -50,4 +53,4 @@ const getBookingsForWeek = (roomId, weekNo) => {
 }
 var bookingRoom = getBookingsForWeek('A101', 38);
 console.log('bookingRoom :', bookingRoom)
-console.log('size :'+bookingRoom.length)
+console.log('size :' + bookingRoom.length)
